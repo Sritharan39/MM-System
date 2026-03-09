@@ -1,0 +1,14 @@
+node_modules/
+package-lock.json
+.env
+.env.local
+.env.*.local
+.DS_Store
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+tmp/
+temp/
+dist/
+build/
