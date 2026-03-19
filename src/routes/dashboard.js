@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const dashboardService = require('../services/dashboardService');
+const { sendSuccess, sendError } = require('../utils/responseHelper');
 
-// Placeholder - will be updated in Phase 6
-
-router.get('/', (req, res) => {
-  res.json({ message: 'Dashboard endpoint - Phase 6' });
+router.get('/', async (req, res, next) => {
+  try {
+    const data = await dashboardService.getDashboardData();
+    sendSuccess(res, data, 'Dashboard data retrieved', 200);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
