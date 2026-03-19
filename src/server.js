@@ -56,3 +56,7 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+// Import Leave Routes
+const leaveRoutes = require('./routes/leave');
+app.use('/api/leave', authenticateToken, leaveRoutes);
