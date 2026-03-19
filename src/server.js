@@ -56,3 +56,7 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+// Import Misuse Routes
+const misuseRoutes = require('./routes/misuse');
+app.use('/api/misuse', authenticateToken, misuseRoutes);
