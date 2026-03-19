@@ -56,3 +56,11 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+// Import Renewal Routes
+const renewalRoutes = require('./routes/renewals');
+app.use('/api/renewals', authenticateToken, renewalRoutes);
+
+// Setup daily renewal alerts
+const { setupDailyAlerts } = require('./services/alertService');
+setupDailyAlerts();
